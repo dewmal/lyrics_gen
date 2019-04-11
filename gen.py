@@ -10,12 +10,12 @@ class Generator(nn.Module):
         self.net = nn.Sequential(
 
             # input is Z, going into a convolution
-            nn.ConvTranspose2d(in_channels=nin, out_channels=nf * 8, kernel_size=4, stride=1, padding=0, bias=False),
+            nn.ConvTranspose2d(in_channels=nin, out_channels=nout, kernel_size=4, stride=1, padding=0, bias=False),
             nn.BatchNorm2d(nout),
             nn.ReLU(inplace=True),
 
             # state size. (nf*8) x 4 x 4
-            nn.ConvTranspose2d(in_channels=nf * 8, out_channels=nf * 4, kernel_size=4, stride=2, padding=1, bias=False),
+            nn.ConvTranspose2d(in_channels=nout, out_channels=nf * 4, kernel_size=4, stride=2, padding=1, bias=False),
             nn.BatchNorm2d(nf * 4),
             nn.ReLU(inplace=True),
 

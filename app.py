@@ -14,16 +14,27 @@ from ignite.engine import Events, Engine
 from ignite.handlers import ModelCheckpoint, Timer
 from ignite.metrics import RunningAverage
 
+source_limit = 100
+
+model_name = "gan_model_3"
+model_version = "v1"
+
+learning_rate = 0.001
+beta_1 = 0.99
+batch_size = 1
+z_dim = 1
+feature_size = 300
+
+#
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # device = 'cpu'
 print(device)
 from gen import Generator, Descriminator
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 lyrics = pd.read_csv('data/380000-lyrics-from-metrolyrics.zip')
 lyrics.dropna(inplace=True)
-source_limit = 10000
 
 from torch.utils.data import Dataset, DataLoader
 
@@ -57,12 +68,6 @@ class LyricsDataSet(Dataset):
 
 dt_x = LyricsDataSet(lyrics).__getitem__(50)
 print(dt_x.shape)
-
-learning_rate = 0.001
-beta_1 = 0.99
-batch_size = 1
-z_dim = 1
-feature_size = 96
 
 netG = Generator(1, feature_size).to(device)
 netD = Descriminator(1, feature_size).to(device)
@@ -155,7 +160,7 @@ def step(engine, batch):
 
 
 trainer = Engine(step)
-checkpoint_handler = ModelCheckpoint("gan_model_1", "_1", save_interval=1, n_saved=10,
+checkpoint_handler = ModelCheckpoint(f"models/{model_name}", model_version, save_interval=1, n_saved=10,
                                      save_as_state_dict=True,
                                      require_empty=False)
 timer = Timer(average=True)
