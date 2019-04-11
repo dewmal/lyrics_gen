@@ -1,0 +1,7 @@
+spacy
+torch
+torchvision
+pytorch-ignite
+numpy
+pandas
+gensim
