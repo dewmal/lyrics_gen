@@ -1,11 +1,11 @@
 ## Lyrics Generator 
 ### PyTorch - Generative Adversarial Network  For Text Generate
 
-##### Dataset
+#### Dataset
 380,000+ lyrics from MetroLyrics
 https://www.kaggle.com/gyani95/380000-lyrics-from-metrolyrics
 
-##### Requirments
+#### Requirments
 
 * pandas - data import
 * spacy - nlp
@@ -13,7 +13,7 @@ https://www.kaggle.com/gyani95/380000-lyrics-from-metrolyrics
 * numpy - computation
 * pytorch-ignite - manage trainig process
 
-##### Getting Start
+#### Getting Start
 
 ##### Download dataset
 
