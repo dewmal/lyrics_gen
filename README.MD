@@ -15,7 +15,7 @@ https://www.kaggle.com/gyani95/380000-lyrics-from-metrolyrics
 
 #### Getting Start
 
->  ##### Download dataset
+ 1. ##### Download dataset
 
   * using kaggle api
   ```bash
@@ -23,7 +23,7 @@ https://www.kaggle.com/gyani95/380000-lyrics-from-metrolyrics
     mkdir data
     mv 380000-lyrics-from-metrolyrics.zip data/
   ```
-  ##### Python Requirments install and run
+  2. ##### Python Requirments install and run
   ```bash
     pip install -r requirements.txt
     python app.py
