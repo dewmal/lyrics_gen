@@ -7,8 +7,24 @@ https://www.kaggle.com/gyani95/380000-lyrics-from-metrolyrics
 
 ##### Requirments
 
-* spacy
-* pytorch
-* pytorch-ignite
-* pandas
-* numpy
+* pandas - data import
+* spacy - nlp
+* pytorch - computation
+* numpy - computation
+* pytorch-ignite - manage trainig process
+
+##### Getting Start
+
+##### Download dataset
+
+* using kaggle api
+```bash
+  !kaggle datasets download -d gyani95/380000-lyrics-from-metrolyrics
+  mkdir data
+  mv 380000-lyrics-from-metrolyrics.zip data/
+```
+##### Python Requirments install and run
+```bash
+  pip install -r requirements.txt
+  python app.py
+```
